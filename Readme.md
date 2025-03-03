@@ -82,7 +82,23 @@ docker-compose up --build
 - Explore adding unit tests for the WebSocket and Kafka integration to ensure reliability.
 - Document the API endpoints and WebSocket events for better developer experience.
 
+# Clean up
+docker-compose down -v
 
+# Create logs directory
+mkdir -p emoji-reaction-backend/logs
+
+# Build and start services
+docker-compose build
+docker-compose up -d
+
+# Monitor logs
+docker-compose logs -f trend-consumer
+
+# Check MongoDB data
+docker exec -it emoji-full-stack-mongodb-1 mongosh
+> use emoji-reactions
+> db.emoji-events.find()
 
 
 

@@ -133,6 +133,20 @@ services:
     networks:
       - app-network
 
+  trend-consumer:
+    build:
+      context: ./emoji-reaction-backend
+      dockerfile: Dockerfile
+    command: ["node", "dist/services/trend-consumer.js"]
+    depends_on:
+      - kafka
+      - mongodb
+    volumes:
+      - ./emoji-reaction-backend/logs:/app/logs
+    networks:
+      - app-network
+    restart: unless-stopped
+
 networks:
   app-network:
     driver: bridge
