@@ -1,0 +1,20 @@
+{
+  "name": "mongodb-sink-connector",
+  "config": {
+    "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+    "connection.uri": "mongodb://mongodb:27017",
+    "database": "emoji-reactions",
+    "collection": "events",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": false,
+    "topics": "emoji-events",
+    "max.batch.size": 1000,
+    "rate.limiting.timeout": 0,
+    "rate.limiting.every.n": 0,
+    "max.num.retries": 3,
+    "retries.defer.timeout": 5000,
+    "document.id.strategy": "com.mongodb.kafka.connect.sink.processor.id.strategy.BsonOidStrategy",
+    "writemodel.strategy": "com.mongodb.kafka.connect.sink.writemodel.strategy.ReplaceOneDefaultStrategy"
+  }
+} 
