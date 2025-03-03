@@ -1,0 +1,6 @@
+[submodule "emoji-reaction"]
+	path = emoji-reaction
+	url = https://github.com/Ujjwal3009/emoji-reaction.git
+[submodule "emoji-reaction-backend"]
+	path = emoji-reaction-backend
+	url = https://github.com/Ujjwal3009/emoji-reaction-backend.git
